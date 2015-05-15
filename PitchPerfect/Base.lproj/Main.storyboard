@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M8U-FO-dpf">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--Record-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjO-Mp-d3K">
+                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <state key="normal" image="microphone-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fH1-Um-839"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIt-jM-VFh">
+                                <rect key="frame" x="127" y="355" width="67" height="14"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="14"/>
+                                <color key="textColor" red="0.10196078431372549" green="0.2196078431372549" blue="0.36078431372549019" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q4o-Sc-5fY">
+                                <rect key="frame" x="123" y="450" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="N8H-Y6-eQT"/>
+                                    <constraint firstAttribute="width" constant="75" id="ra9-Yg-Uxx"/>
+                                </constraints>
+                                <state key="normal" image="stop@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oON-8z-Y6N"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Q4o-Sc-5fY" firstAttribute="top" secondItem="DIt-jM-VFh" secondAttribute="bottom" constant="81" id="AeZ-Sk-Mpd"/>
+                            <constraint firstItem="DIt-jM-VFh" firstAttribute="top" secondItem="jjO-Mp-d3K" secondAttribute="bottom" constant="21" id="EhF-tN-gn4"/>
+                            <constraint firstAttribute="centerX" secondItem="Q4o-Sc-5fY" secondAttribute="centerX" constant="-0.5" id="MOg-9Y-AZ5"/>
+                            <constraint firstAttribute="centerX" secondItem="jjO-Mp-d3K" secondAttribute="centerX" id="Xuv-7f-opq"/>
+                            <constraint firstAttribute="centerY" secondItem="jjO-Mp-d3K" secondAttribute="centerY" id="kN3-iZ-xna"/>
+                            <constraint firstItem="jjO-Mp-d3K" firstAttribute="centerX" secondItem="DIt-jM-VFh" secondAttribute="centerX" constant="-0.5" id="poM-N0-pGW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Record" id="if2-ab-yjV"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="recordButton" destination="jjO-Mp-d3K" id="FJH-yD-qV1"/>
+                        <outlet property="recordingLabel" destination="DIt-jM-VFh" id="Upj-yN-1yg"/>
+                        <outlet property="stopButton" destination="Q4o-Sc-5fY" id="MaS-3p-Wqy"/>
+                        <segue destination="Dfd-XX-iIP" kind="show" identifier="StopRecording" id="Ygo-pW-ma1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="278"/>
+        </scene>
+        <!--Play Sounds View Controller-->
+        <scene sceneID="wXz-h0-jZx">
+            <objects>
+                <viewController id="Dfd-XX-iIP" customClass="PlaySoundsViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U2Y-ia-aVm"/>
+                        <viewControllerLayoutGuide type="bottom" id="mFy-Sj-J5j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xxf-lb-mqs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dn-4B-Xp2">
+                                <rect key="frame" x="50" y="114" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="EWP-0c-rtx"/>
+                                    <constraint firstAttribute="width" constant="75" id="xLl-qg-sOt"/>
+                                </constraints>
+                                <state key="normal" image="slow@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rateButtonPressed:" destination="Dfd-XX-iIP" eventType="touchUpInside" id="x1F-sl-9MO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHg-eE-LbG">
+                                <rect key="frame" x="195" y="114" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="PsO-5c-3pV"/>
+                                    <constraint firstAttribute="width" constant="75" id="qjF-8q-c0U"/>
+                                </constraints>
+                                <state key="normal" image="fast@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rateButtonPressed:" destination="Dfd-XX-iIP" eventType="touchUpInside" id="Xky-Sb-u7Z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q50-B7-cqC">
+                                <rect key="frame" x="135" y="447" width="50" height="50"/>
+                                <state key="normal" image="stop@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="Dfd-XX-iIP" eventType="touchUpInside" id="pT1-cm-0yy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZr-0Y-lLa">
+                                <rect key="frame" x="50" y="246" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="27h-UW-COg"/>
+                                    <constraint firstAttribute="height" constant="75" id="yPY-nJ-a1T"/>
+                                </constraints>
+                                <state key="normal" image="chipmunk@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pitchButtonPressed:" destination="Dfd-XX-iIP" eventType="touchUpInside" id="Byv-Ff-fzy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doR-RQ-PCh">
+                                <rect key="frame" x="195" y="249" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="agh-ne-z2J"/>
+                                    <constraint firstAttribute="height" constant="75" id="wIA-sj-5bP"/>
+                                </constraints>
+                                <state key="normal" image="darthvader@2x-iphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pitchButtonPressed:" destination="Dfd-XX-iIP" eventType="touchUpInside" id="xmG-ij-FwW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mFy-Sj-J5j" firstAttribute="top" secondItem="q50-B7-cqC" secondAttribute="bottom" constant="71" id="3Zc-8T-Xtv"/>
+                            <constraint firstItem="doR-RQ-PCh" firstAttribute="top" secondItem="UHg-eE-LbG" secondAttribute="bottom" constant="60" id="6sQ-45-T6Y"/>
+                            <constraint firstAttribute="trailing" secondItem="doR-RQ-PCh" secondAttribute="trailing" constant="50" id="B41-y4-9Pt"/>
+                            <constraint firstItem="UHg-eE-LbG" firstAttribute="top" secondItem="U2Y-ia-aVm" secondAttribute="bottom" constant="50" id="Q15-Vs-ZWN"/>
+                            <constraint firstItem="1Dn-4B-Xp2" firstAttribute="top" secondItem="U2Y-ia-aVm" secondAttribute="bottom" constant="50" id="Sc5-n6-sv7"/>
+                            <constraint firstItem="1Dn-4B-Xp2" firstAttribute="leading" secondItem="xxf-lb-mqs" secondAttribute="leading" constant="50" id="dKr-Ce-7c0"/>
+                            <constraint firstItem="nZr-0Y-lLa" firstAttribute="leading" secondItem="xxf-lb-mqs" secondAttribute="leading" constant="50" id="iEC-32-xAs"/>
+                            <constraint firstItem="nZr-0Y-lLa" firstAttribute="top" secondItem="1Dn-4B-Xp2" secondAttribute="bottom" constant="57" id="iHc-lh-LFZ"/>
+                            <constraint firstAttribute="centerX" secondItem="q50-B7-cqC" secondAttribute="centerX" id="jY0-ag-RRM"/>
+                            <constraint firstAttribute="trailing" secondItem="UHg-eE-LbG" secondAttribute="trailing" constant="50" id="vaa-js-dpD"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Lh-ma-fQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1364" y="278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YU2-wV-CYE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M8U-FO-dpf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KAQ-ds-lV4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="heM-6C-Qfp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaD-W3-EhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chipmunk@2x-iphone" width="100" height="100"/>
+        <image name="darthvader@2x-iphone" width="200" height="200"/>
+        <image name="fast@2x-iphone" width="100" height="100"/>
+        <image name="microphone-iphone" width="100" height="100"/>
+        <image name="slow@2x-iphone" width="100" height="100"/>
+        <image name="stop@2x-iphone" width="50" height="50"/>
+    </resources>
+</document>
